@@ -5,7 +5,7 @@ import numpy as np
 from flask import Flask,jsonify
 app = Flask(__name__)
 
-@app.route('/recommendation/<ht>/<wt>')
+@app.route('/recommendation/height=<ht>/weight=<wt>')
 def recommendation(ht,wt):
     cols=['Food and Serving','Calories']
     df = pd.read_csv('Food.csv',usecols=cols,engine='python')
@@ -40,7 +40,7 @@ def recommendation(ht,wt):
     for val in iteration:
         if (val >= (unitcal-0.0001)) or (val<=(unitcal+0.0001)):
             idx.append(iteration.index(val))
-    idx=np.array(idx)
+    idx=np.array(idx) 
     idx=np.unique(idx)
     idx=list(idx)
     df.iloc[idx,0]
