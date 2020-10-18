@@ -61,6 +61,7 @@ def recommendation(ht,wt):
     df.iloc[idx,0]
 
     recommended=[i.split(',')[0] for i in df.iloc[idx,0]]
+    print(recommended)
 
     recommended_display={
     #"height":ht,
